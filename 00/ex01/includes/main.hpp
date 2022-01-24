@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:23:27 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/24 18:40:19 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/24 20:36:43 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@
 # include <iostream>
 # include <string.h>
 
-# include "../srcs/Phonebook.cpp"
+enum	e_commands {
+	Add,
+	Exit,
+	Search,
+	E_COMMANDS_LENGTH
+};
+
+
+# include "Contact.hpp"
+# include "Phonebook.hpp"
 
 #endif
