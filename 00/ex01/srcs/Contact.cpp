@@ -6,25 +6,38 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 20:20:32 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/24 22:04:26 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/25 17:42:13 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
 Contact::Contact(void) {
-	Contact::_nb_instance += 1;
-	this->set_id(Contact::get_nb_instance());
 	return ;
 }
 
 Contact::~Contact(void) {
-	std::cout << "Destructor contact." << std::endl;
 	return ;
 }
 
-int	Contact::get_nb_instance (void) {
-	return (Contact::_nb_instance);
+std::string	Contact::fill_attribute(std::string name) {
+	std::string attribute;
+
+	std::cout << name << std::endl;
+	std::cin >> attribute;
+	return (attribute);
+}
+
+void	Contact::add(void) {
+	std::string	input;
+
+	std::cout << "Add new contact:" << std::endl;
+	this->set_id(Phonebook::get_count());
+	this->set_firstname(this->fill_attribute("Firstname:"));
+	this->set_lastname(this->fill_attribute("Lastname:"));
+	this->set_nickname(this->fill_attribute("Nickname :"));
+	this->set_phone_number(this->fill_attribute("Phone number:"));
+	this->set_darkest_secret(this->fill_attribute("Darkest secret:"));
 }
 
 int	Contact::get_id (void) const {
@@ -75,4 +88,3 @@ void	Contact::set_darkest_secret (std::string darkest_secret) {
 	this->_darkest_secret = darkest_secret;
 }
 
-int	Contact::_nb_instance = 0;

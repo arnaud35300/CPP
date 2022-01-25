@@ -4,13 +4,22 @@ int	main(void)
 {
 	std::string		cmd;
 	Phonebook	phonebook;
-		
-	while (phonebook.get_cmd() != "EXIT")
+	
+	std::cout << "Welcome to my interactive phonebook !" << std::endl;
+	while (cmd.compare("EXIT") != 0)
 	{
 		std::cout << "Enter a command (ADD, SEARCH, EXIT):" << std::endl;
 		std::cin >> cmd;
-		phonebook.set_cmd(cmd);
-		phonebook.execute_cmd();
+		if (cmd.compare("ADD") == 0)
+		{
+			Contact contact;
+			contact.add();
+			phonebook.add_contact(contact);
+		}
+		else if (cmd.compare("SEARCH") == 0)
+		{
+			phonebook.print_contacts();
+			phonebook.search_contact();
+		}
 	}
-		phonebook.print_contacts();
 }
