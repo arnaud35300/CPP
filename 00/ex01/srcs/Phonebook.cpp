@@ -52,7 +52,7 @@ void	Phonebook::print_contacts(void) const {
 	std::cout << std::endl;
 	for (int i = 0; i < this->_count; i++)
 	{
-		this->display_attribute(std::to_string(this->_contacts[i].get_id() + 1));
+		std::cout << std::setw(10) << std::right << std::setfill(' ') << this->_contacts[i].get_id() + 1 << "|";
 		this->display_attribute(this->_contacts[i].get_firstname());
 		this->display_attribute(this->_contacts[i].get_lastname());
 		this->display_attribute(this->_contacts[i].get_nickname());
@@ -72,12 +72,13 @@ void	Phonebook::print_contact(int id) const {
 }
 
 void	Phonebook::search_contact(void) const {
-	int	id;
 	std::string	input;
 
 	std::cout << "Index:" << std::endl;
 	std::cin >> input;
-	id = std::atoi(input.c_str());
+	std::stringstream input_stream(input);
+	int id = 0;
+	input_stream >> id;
 	if (id <= 0 || id > Phonebook::_count)
 	{
 		std::cout << "Bad index." << std::endl;

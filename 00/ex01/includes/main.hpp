@@ -17,15 +17,7 @@
 # include <iomanip>
 # include <string.h>
 # include <string>
-
-enum	e_commands {
-	Add,
-	Exit,
-	Search,
-	E_COMMANDS_LENGTH
-};
-
-
+#include <sstream>
 # include "Contact.hpp"
 # include "Phonebook.hpp"
 
