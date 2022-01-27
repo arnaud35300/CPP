@@ -24,25 +24,11 @@ public:
 	~Fixed( void );
 
 	Fixed & operator=( Fixed  const & rhs );
-	Fixed	operator+( Fixed  const & rhs ) const;
-	Fixed	operator-( Fixed  const & rhs ) const;
-	Fixed	operator*( Fixed  const & rhs ) const;
-	Fixed	operator/( Fixed  const & rhs ) const;
-	Fixed	operator--(int);
-	Fixed	operator--(void);
-	Fixed	operator++(int);
-	Fixed	operator++(void);
-	bool	operator>( const Fixed & rhs) const;
-	bool	operator<( const Fixed & rhs) const;
-	bool	operator>=( const Fixed & rhs) const;
-	bool	operator<=( const Fixed & rhs) const;
-	bool	operator==( const Fixed & rhs) const;
-	bool	operator!=( const Fixed & rhs) const;
-	static	const Fixed &	min(const Fixed & rls, const Fixed & rhs);
 	int		getRawBits(void) const;
 	void	setRawBits(int const raw);
 	float	toFloat(void) const;
 	int		toInt(void)	const;
+
 
 private:
 	int	_value;
