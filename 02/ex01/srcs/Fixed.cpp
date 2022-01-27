@@ -18,15 +18,17 @@ Fixed::Fixed(void) : _value(0)
 	return ;
 }
 
-Fixed::Fixed(int const nb) : _value(nb)
+Fixed::Fixed(int const nb)
 {
-	std::cout << "Parameter constructor called" << std::endl;
+	std::cout << "Integer constructor called" << std::endl;
+	this->_value = nb << Fixed::_bytes;
 	return ;
 }
 
 Fixed::Fixed(float const nb) : _value(nb)
 {
-	std::cout << "Parameter constructor called" << std::endl;
+	std::cout << "Float constructor called" << std::endl;
+	this->_value = roundf(nb * (pow(2, Fixed::_bytes)));
 	return ;
 }
 
@@ -46,13 +48,8 @@ Fixed::~Fixed(void)
 Fixed &	Fixed::operator=(Fixed const & rhs)
 {
 	std::cout << "Assignation operator called" << std::endl;
-	this->_value = rhs.getValue();
+	this->_value = rhs.getRawBits();
 	return (*this);
-}
-
-int	Fixed::getValue(void) const
-{
-	return (this->_value);
 }
 
 int	Fixed::getRawBits(void) const
@@ -70,14 +67,18 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-	return ((float)this->_value);
+	return ((float)this->_value / (pow(2, Fixed::_bytes)));
 }
 
 int		Fixed::toInt(void) const
 {
-	return (this->_value);
+	return (this->_value >> Fixed::_bytes);
 }
 
-std::ostream	&	Fixed::
+std::ostream &	operator<<(std::ostream & o, Fixed const & rhs)
+{
+	o << rhs.toFloat();
+	return o;
+}
 
 int	Fixed::_bytes = 8;

@@ -16,5 +16,5 @@
 # include <iostream>
 # include <string>
 # include "Fixed.hpp"
-
+# include <cmath>
 #endif
