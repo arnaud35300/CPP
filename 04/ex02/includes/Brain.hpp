@@ -1,35 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/30 17:28:46 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/30 22:22:16 by arguilla         ###   ########.fr       */
+/*   Created: 2022/01/30 21:03:33 by arguilla          #+#    #+#             */
+/*   Updated: 2022/01/30 21:40:04 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef BRAIN_H
+# define BRAIN_H
 
-class Animal {
+class Brain
+{
+private:
+	static const int	_ideas_length = 100;
 
 public:
 
-	Animal( void );
-	Animal( Animal const & src );
-	virtual ~Animal( void );
+	Brain( void );
+	Brain( Brain const & src );
+	~Brain( void );
 
-	Animal & operator=( Animal  const & rhs );
-	virtual void	makeSound(void) const;
-	std::string		getType(void) const;
+	Brain & operator=( Brain  const & rhs );
+	std::string	ideas[Brain::_ideas_length];
 
 protected:
-	std::string	_type;	
+		
 
-private:
-	
 };
 
-#endif /* ANIMAL_H */
+#endif /* BRAIN_H */

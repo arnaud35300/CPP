@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 17:28:46 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/30 22:22:16 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/30 22:22:23 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#include "main.hpp"
 
-class Animal {
+Animal::Animal(void) : _type("Unknown type")
+{
+	std::cout << "Call Animal default constructor" << std::endl;
+	return ;
+}
 
-public:
+Animal::~Animal(void)
+{
+	std::cout << "Call Animal default destructor" << std::endl;
+	return ;
+}
 
-	Animal( void );
-	Animal( Animal const & src );
-	virtual ~Animal( void );
+Animal & Animal::operator=( Animal  const & rhs )
+{
+	this->_type = rhs.getType();
+	return (*this);
+}
 
-	Animal & operator=( Animal  const & rhs );
-	virtual void	makeSound(void) const;
-	std::string		getType(void) const;
+void	Animal::makeSound(void) const
+{
+	return ;
+}
 
-protected:
-	std::string	_type;	
-
-private:
-	
-};
-
-#endif /* ANIMAL_H */
+std::string	Animal::getType(void) const
+{
+	return (this->_type);
+}

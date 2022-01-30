@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/30 17:28:46 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/30 22:22:16 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/01/31 00:14:48 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public:
 	virtual ~Animal( void );
 
 	Animal & operator=( Animal  const & rhs );
-	virtual void	makeSound(void) const;
+	virtual void	makeSound(void) const = 0;
 	std::string		getType(void) const;
 
 protected:
