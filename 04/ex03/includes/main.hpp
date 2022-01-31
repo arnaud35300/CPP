@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   main.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/30 17:28:46 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/31 12:28:10 by arguilla         ###   ########.fr       */
+/*   Created: 2022/01/27 11:40:55 by arguilla          #+#    #+#             */
+/*   Updated: 2022/01/31 14:12:56 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef MAIN_HPP
+# define MAIN_HPP
 
-class Animal {
+# include <iostream>
+# include <string>
 
-public:
+# include "AMateria.hpp"
+# include "Ice.hpp"
+# include "Cure.hpp"
+# include "Character.hpp"
 
-	Animal( void );
-	Animal( Animal const & src );
-	virtual ~Animal( void );
-
-	Animal & operator=( Animal  const & rhs );
-	virtual void	makeSound(void) const = 0;
-	std::string		getType(void) const;
-protected:
-	std::string	_type;	
-
-private:
-	
-};
-
-#endif /* ANIMAL_H */
+#endif

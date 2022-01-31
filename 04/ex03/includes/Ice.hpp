@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/30 17:28:46 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/31 12:28:10 by arguilla         ###   ########.fr       */
+/*   Created: 2022/01/31 12:49:44 by arguilla          #+#    #+#             */
+/*   Updated: 2022/01/31 13:51:59 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_H
-# define ANIMAL_H
+#ifndef ICE_H
+# define ICE_H
 
-class Animal {
+class Ice : public AMateria {
 
 public:
 
-	Animal( void );
-	Animal( Animal const & src );
-	virtual ~Animal( void );
+	Ice(void);
+	Ice(std::string const & type);
+	Ice(Ice const & src );
+	~Ice(void);
 
-	Animal & operator=( Animal  const & rhs );
-	virtual void	makeSound(void) const = 0;
-	std::string		getType(void) const;
+	Ice & operator=(Ice const & rhs );
+
+	std::string const &	getType(void) const;
+	void	use(ICharacter & target);	
+	AMateria*	clone(void) const ;
+
+
 protected:
-	std::string	_type;	
+
 
 private:
-	
+
+
 };
 
-#endif /* ANIMAL_H */
+#endif /* ICE_H */
