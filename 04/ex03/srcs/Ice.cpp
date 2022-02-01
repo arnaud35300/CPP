@@ -24,6 +24,12 @@ Ice::Ice(std::string const & type)
 	return ;
 }
 
+Ice::Ice(const Ice & src)
+{
+	*this = src;
+	return ;
+}
+
 Ice::~Ice(void)
 {
 	return ;
@@ -48,5 +54,5 @@ void	Ice::use(ICharacter & target)
 
 AMateria*	Ice::clone(void) const
 {
-	return (new Ice);
+	return (new Ice(*this));
 }

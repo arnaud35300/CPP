@@ -34,9 +34,7 @@ public:
 	
 private:
 	std::string	_name;
-	static const int	inventory_max = 4;
-	int	_idx;
-	AMateria	*_inventory[Character::inventory_max];
+	AMateria	*_inventory[4];
 };
 
 #endif /* CHARACTER_H */

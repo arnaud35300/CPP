@@ -41,6 +41,7 @@ SRCS	=	main.cpp \
 			Cure.cpp \
 			Ice.cpp \
 			Character.cpp \
+			MateriaSource.cpp \
 
 # [ OBJECTS ] #
 

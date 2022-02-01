@@ -24,6 +24,11 @@ Cure::Cure(std::string const & type)
 	return ;
 }
 
+Cure::Cure(const Cure & src)
+{
+	*this = src;
+	return ;
+}
 Cure::~Cure(void)
 {
 	return ;
@@ -47,5 +52,5 @@ void	Cure::use(ICharacter & target)
 
 AMateria*	Cure::clone(void) const
 {
-	return (new Cure);
+	return (new Cure(*this));
 }

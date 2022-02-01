@@ -12,9 +12,9 @@
 
 #include "main.hpp"
 
-Character::Character(void) : _name("Random player"), _idx(0)
+Character::Character(void) : _name("Random player")
 {
-	for (int i = 0; i < Character::inventory_max; ++i)
+	for (int i = 0; i < 4; ++i)
 		this->_inventory[i] = NULL;
 	return ;
 }
@@ -28,22 +28,33 @@ Character::Character(std::string name)
 
 Character::Character(Character const & src)
 {
-	*this = src;	
+	for (int i = 0; i < 4; i++)
+		this->_inventory[i] = NULL;
+	*this = src;
 	return ;
 }
 
 Character::~Character(void)
 {
+	for (int i = 0; i < 4; i++)
+		if (this->_inventory[i])
+			delete this->_inventory[i];
 	return ;
 }
 
 Character &	Character::operator=(Character const & rhs)
 {
+	if (this == &rhs)
+		return (*this);
 	this->_name = rhs.getName();
-	this->_idx = rhs._idx;
-	for (int i = 0; i < Character::inventory_max; i++)
+	for (int i = 0; i < 4; i++)
 	{
-		this->_inventory[i] = rhs._inventory[i];
+		if (this->_inventory[i])
+			delete	this->_inventory[i];
+		if (rhs._inventory[i])
+			this->_inventory[i] = rhs._inventory[i]->clone();
+		else
+			this->_inventory[i] = NULL;
 	}
 	return (*this);
 }
@@ -55,41 +66,35 @@ std::string const &	Character::getName() const
 
 void	Character::equip(AMateria *m)
 {
-	if (this->_idx >= Character::inventory_max)
-		return ;
-	this->_inventory[this->_idx] = m;
-	this->_idx++;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->_inventory[i] == NULL)
+		{
+			this->_inventory[i] = m;
+			return ;
+		}
+	}
 	return ;
 }
 
 void Character::unequip(int idx)
 {
-	if (idx < 0 || idx >= this->_idx)
-		return ;
-	int i = 0, j = 0;
-	while (i < this->_idx)
-	{
-		if (i != idx)
-		{
-			this->_inventory[j] = this->_inventory[i];
-			j++;
-		}
-		i++;
-	}
-	this->_inventory[i] = NULL;
-	this->_idx--;
+	if (idx >= 0 && idx <= 4)
+		this->_inventory[idx] = NULL;
+	return ;
 }
 
 void	Character::use(int idx, ICharacter& target)
 {
-	if (idx < 0 || idx > Character::inventory_max || idx > this->_idx)
-		return ;
-	this->_inventory[idx]->use(target);
+	if (idx >= 0 && idx <= 4 && this->_inventory[idx] != NULL)
+		this->_inventory[idx]->use(target);
+	return ;
 }
 
 void	Character::printInventory(void)
 {
-	std::cout << "[ " << this->getName() << " ] Inventory (" << this->_idx << "):" << std::endl;
-	for (int i = 0; i < this->_idx; ++i)
-		std::cout << "[" << i << "] " << this->_inventory[i]->getType() << std::endl;
+	std::cout << "[ " << this->getName() << " ] Inventory :" << std::endl;
+	for (int i = 0; i <  4; ++i)
+		if (this->_inventory[i])
+			std::cout << "[" << i << "] " << this->_inventory[i]->getType() << std::endl;
 }
