@@ -14,17 +14,12 @@
 
 int	main(void)
 {
-	{
-		Bureaucrat	b = Bureaucrat("B", 1);
-		std::cout << b;
-		b.increaseGrade();
-		std::cout << b;
-	}
-	{
-		Bureaucrat	b = Bureaucrat("B", 150);
-		std::cout << b;
-		b.decreaseGrade();
-		std::cout << b;
-	}
+	Bureaucrat pnj("Marc", 1);
+	Form		form("form", 12, 5);
+
+	form.beSigned(pnj);
+	pnj.signForm(form);
+
+	std::cout << pnj << form;
 	return (0);
 }

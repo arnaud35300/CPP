@@ -49,7 +49,7 @@ Character &	Character::operator=(Character const & rhs)
 	this->_name = rhs.getName();
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->_inventory[i])
+		if (this->_inventory[i] && this->_inventory[i]->getType().empty())
 			delete	this->_inventory[i];
 		if (rhs._inventory[i])
 			this->_inventory[i] = rhs._inventory[i]->clone();

@@ -26,12 +26,12 @@ Bureaucrat::Bureaucrat(std::string const & name, int grade) : _name(name), _grad
 	catch (Bureaucrat::GradeTooHighException & e)
 	{
 		std::cout << e.what() << std::endl;
-		this->_grade = 1;
+		this->_grade = 150;
 	}
 	catch (Bureaucrat::GradeTooLowException & e)
 	{
 		std::cout << e.what() << std::endl;
-		this->_grade = 150;
+		this->_grade = 1;
 	}
 	return ;
 }
@@ -115,4 +115,10 @@ std::ostream &	operator<<(std::ostream & o, Bureaucrat const & rhs)
 {
 	o << rhs.getName() << ", bureaucrat grade " << rhs.getGrade() << std::endl;
 	return (o);
+}
+
+void	Bureaucrat::signForm(Form const & form)
+{
+	if (form.getIsSigned())
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
 }

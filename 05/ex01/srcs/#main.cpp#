@@ -12,19 +12,12 @@
 
 #include "main.hpp"
 
-int	main(void)
-{
-	{
-		Bureaucrat	b = Bureaucrat("B", 1);
-		std::cout << b;
-		b.increaseGrade();
-		std::cout << b;
-	}
-	{
-		Bureaucrat	b = Bureaucrat("B", 150);
-		std::cout << b;
-		b.decreaseGrade();
-		std::cout << b;
-	}
+int	main(void){
+	Form	a("FORM", 12, 15);
+	Form	b("FORM", 15, 160);
+	Bureaucrat z("Jean", 2);
+	
+	a.beSigned(z);
+	std::cout <<  z << a << b;
 	return (0);
 }
