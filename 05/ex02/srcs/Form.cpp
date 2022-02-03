@@ -126,3 +126,10 @@ bool	Form::manageException(Form const	& f)
 		return (false);
 	}
 }
+
+void	Form::CheckExecuteRequirements(Bureaucrat const & executor) const
+{
+	if (!this->getIsSigned() || executor.getGrade() > this->getGradeToExecute())
+		throw Form::ExecutionRequirementsException();
+	return ;
+}

@@ -30,6 +30,7 @@ public:
 	int	getGradeToExecute(void) const;
 	void	beSigned(Bureaucrat const & b);
 	bool	manageException(Form const	& f);
+	virtual void	execute(const Bureaucrat & executor) const = 0;
 
 	class	GradeTooHighException :	public std::exception
 	{
@@ -56,7 +57,18 @@ public:
 			}
 	};
 
+	class ExecutionRequirementsException : public std::exception
+	{
+		public:
+			virtual const char *	what(void) const throw()
+			{
+				return ("Bureaucrat can't execute this Form.");
+			}
+	};
+
 protected:
+	void	CheckExecuteRequirements(Bureaucrat const & executor) const;
+
 
 private:
 	std::string const	_name;

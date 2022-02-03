@@ -122,3 +122,16 @@ void	Bureaucrat::signForm(Form const & form)
 	if (form.getIsSigned())
 		std::cout << this->_name << " signed " << form.getName() << std::endl;
 }
+
+void	Bureaucrat::executeForm(Form const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << " executed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}	
+}

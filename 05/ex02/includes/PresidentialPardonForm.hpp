@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                          :+:      :+:    :+:  */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,24 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERYCREATIONFORM_H
-# define SHRUBBERYCREATIONFORM_H
+#ifndef PRESIDENTPARDONFORM_H
+# define PRESIDENTPARDONFORM_H
 
-class ShrubberyCreationForm :	public Form
+class PresidentialPardonForm :	public Form
 {
 
 public:
 
-	ShrubberyCreationForm( void );
-	ShrubberyCreationForm(std::string const & target);
-	ShrubberyCreationForm( ShrubberyCreationForm const & src );
+	PresidentialPardonForm( void );
+	PresidentialPardonForm(std::string const & target);
+	PresidentialPardonForm( PresidentialPardonForm const & src );
 
-	~ShrubberyCreationForm( void );
+	~PresidentialPardonForm( void );
 
-	ShrubberyCreationForm & operator=( ShrubberyCreationForm  const & rhs );
+	PresidentialPardonForm & operator=( PresidentialPardonForm  const & rhs );
 
 	std::string const &	getTarget(void) const;
 	void	execute(Bureaucrat const & executor) const;
+
 protected:
 
 
@@ -36,4 +37,4 @@ private:
 
 };
 
-#endif /* SHRUBBERYCREATIONFORM_H */
+#endif /* PresidentialPardonForm_H */

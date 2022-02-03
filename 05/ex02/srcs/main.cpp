@@ -14,12 +14,49 @@
 
 int	main(void)
 {
-	Bureaucrat pnj("Marc", 1);
-	Form		form("form", 12, 5);
+	ShrubberyCreationForm	s_form("tree");
+	RobotomyRequestForm		r_form("robot");
+	PresidentialPardonForm	p_form("presidential");
+	Bureaucrat				bureaucrat("Steve", 1);
 
-	form.beSigned(pnj);
-	pnj.signForm(form);
+	std::cout
+		<< s_form
+		<< r_form
+		<< p_form
+		<< std::endl << "Bureaucrat :" << std::endl
+		<< bureaucrat
+	;
 
-	std::cout << pnj << form;
+	bureaucrat.executeForm(s_form);
+	s_form.beSigned(bureaucrat);
+	bureaucrat.signForm(s_form);
+	bureaucrat.executeForm(s_form);
+
+	bureaucrat.executeForm(p_form);
+	r_form.beSigned(bureaucrat);
+	bureaucrat.signForm(r_form);
+	bureaucrat.executeForm(r_form);
+	bureaucrat.executeForm(r_form);
+	bureaucrat.executeForm(r_form);
+	bureaucrat.executeForm(r_form);
+	bureaucrat.executeForm(r_form);
+	bureaucrat.executeForm(r_form);
+	bureaucrat.executeForm(r_form);
+	bureaucrat.executeForm(r_form);
+	bureaucrat.executeForm(r_form);
+
+	bureaucrat.executeForm(p_form);
+	p_form.beSigned(bureaucrat);
+	bureaucrat.signForm(p_form);
+	bureaucrat.executeForm(p_form);
+
+	std::cout
+		<< s_form
+		<< r_form
+		<< p_form
+		<< std::endl << "Bureaucrat :" << std::endl
+		<< bureaucrat
+	;
+
 	return (0);
 }
