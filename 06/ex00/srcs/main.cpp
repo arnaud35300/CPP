@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 11:40:31 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/03 17:08:19 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/02/03 17:14:55 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class	App
 
 		std::string const	input;
 		e_type	type;
-	
+
 		App(void) : input(""), type(EMPTY) { return ;}
 		App(std::string const & input) : input(input), type(EMPTY) { return ;}
 		~App(void) { return ; }
@@ -54,10 +54,11 @@ class	App
 
 			std::cout << "char: " << c << std::endl;
 			std::cout << "int: " << static_cast<int>(c)<< std::endl;
-			std::cout << "float: " << static_cast<float>(c)<< std::endl;
-			std::cout << "double: " << static_cast<double>(c)<< std::endl;
+			std::cout << "float: " << static_cast<float>(c) << ".0f" <<std::endl;
+			std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
 			return ;
 		}
+
 		void	printInt(void)
 		{
 			int	n = atoi(input.c_str());
@@ -68,6 +69,7 @@ class	App
 			std::cout << "double: " << static_cast<double>(n) << ".0" << std::endl;
 			return ;
 		}
+
 		void	printFloat(void)
 		{
 			float	n = atof(input.c_str());
@@ -75,7 +77,7 @@ class	App
 			if (convertToChar(n))
 				std::cout << "char: " << static_cast<char>(n) << std::endl;
 			std::cout << "int: " << static_cast<int>(n) << std::endl;
-			std::cout << "float: " << n<< std::endl;
+			std::cout << "float: " << n << "f" << std::endl;
 			std::cout << "double: " << static_cast<double>(n)<< std::endl;
 			return ;
 		}
@@ -87,7 +89,7 @@ class	App
 			if (convertToChar(n))
 				std::cout << "char: " << static_cast<char>(n) << std::endl;
 			std::cout << "int: " << static_cast<int>(n) << std::endl;
-			std::cout << "float: " << static_cast<float>(n) << std::endl;
+			std::cout << "float: " << static_cast<float>(n) << "f" << std::endl;
 			std::cout << "double: " << n << std::endl;
 			return ;
 		}
@@ -113,6 +115,7 @@ class	App
 			};
 			(this->*func[type])();
 		}
+
 		void	findType(void)
 		{
 			bool	dot = false;
@@ -161,11 +164,6 @@ class	App
 			else
 				type = FLOAT;
 			return ;
-		}
-		bool	printBadInputMsg(std::string const & input, unsigned char const code) const
-		{
-			std::cerr << "Bad format input: [" << input << "]" << std::endl;
-			return (code);
 		}
 
 	class	BadInputException: public std::exception
