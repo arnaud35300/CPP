@@ -27,7 +27,6 @@ Form::Form(std::string name, int grade_to_sign, int grade_to_execute) : _name(na
 	return ;
 }
 
-
 Form::Form(Form const & src) :	_name(src.getName()),
 								_is_signed(src.getIsSigned()),
 								_grade_to_sign(src.getGradeToSign()),
