@@ -33,15 +33,11 @@ public:
 	int	getAttackDamage(void) const;
 
 protected:
-
-
-private:
-	ClapTrap( void );
 	std::string	_name;
 	int	_hit_points;
 	int	_energy_points;
 	int	_attack_damage;
-
+	ClapTrap(void);
 };
 
 std::ostream &	operator<<(std::ostream & o, ClapTrap const & rhs);

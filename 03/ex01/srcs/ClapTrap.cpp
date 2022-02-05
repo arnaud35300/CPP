@@ -12,9 +12,15 @@
 
 #include "main.hpp"
 
+ClapTrap::ClapTrap(void): _name(""), _hit_points(0), _energy_points(0), _attack_damage(0)
+{
+	std::cout << "ClapTrap default constructor called" << std::endl;
+	return ;
+}
+
 ClapTrap::ClapTrap(std::string name): _name(name), _hit_points(10), _energy_points(10), _attack_damage(0)
 {
-	std::cout << "Call default constructor" << std::endl;
+	std::cout << "ClapTrap parameter constructor called" << std::endl;
 	return ;
 }
 
@@ -27,7 +33,7 @@ ClapTrap::ClapTrap(ClapTrap const & src)
 
 ClapTrap::~ClapTrap(void)
 {
-	std::cout << "Call default destructor" << std::endl;
+	std::cout << "ClapTrap default destructor called" << std::endl;
 	return ;
 }
 

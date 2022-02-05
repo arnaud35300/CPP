@@ -12,19 +12,23 @@
 
 #include "main.hpp"
 
-ScavTrap::ScavTrap(void): ClapTrap("pnj")
+ScavTrap::ScavTrap(void)
 {
+	return ;
+}
+
+ScavTrap::ScavTrap(std::string name)
+{
+	this->_name = name;
+	this->_hit_points = 100;
+	this->_energy_points = 50;
+	this->_attack_damage = 20;
+
 	std::cout << "ScavTrap default constructor called" << std::endl;
 	return ;
 }
 
-ScavTrap::ScavTrap(std::string name): ClapTrap(name)
-{
-	std::cout << "ScavTrap default constructor called" << std::endl;
-	return ;
-}
-
-ScavTrap::ScavTrap(ScavTrap const & src): ClapTrap(src.getName())
+ScavTrap::ScavTrap(ScavTrap const & src)
 {
 	std::cout << "ScavTrap copy constructor called" << std::endl;
 	*this = src;
@@ -39,7 +43,10 @@ ScavTrap::~ScavTrap(void)
 
 ScavTrap &	ScavTrap::operator=(ScavTrap const & rhs)
 {
-	(void)rhs;
+	this->_name = rhs.getName();
+	this->_hit_points = rhs.getHitPoints();
+	this->_energy_points = rhs.getEnergyPoints();
+	this->_attack_damage = rhs.getAttackDamage();
 	return (*this);
 }
 
