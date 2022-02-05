@@ -25,14 +25,21 @@ int	Phonebook::get_count(void) {
 }
 
 void	Phonebook::add_contact(Contact contact) {
-
 	if (Phonebook::_count == 8)
 	{
-		std::cout << "You can't add new contact." << std::endl;
-		return ;
+		std::cout << "Index: " << this->id << std::endl;
+		contact.set_id(this->id);
+		this->_contacts[this->id] = contact;
+		this->id++;
+		if (this->id == 8)
+			this->id = 0;
 	}
-	this->_contacts[Phonebook::_count] = contact;
-	Phonebook::_count++;
+	else
+	{
+		contact.set_id(Phonebook::_count);
+		this->_contacts[Phonebook::_count] = contact;
+		Phonebook::_count++;
+	}
 	return ;
 }
 
@@ -88,3 +95,4 @@ void	Phonebook::search_contact(void) const {
 }
 
 int Phonebook::_count = 0;
+int Phonebook::id = 0;

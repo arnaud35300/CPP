@@ -32,7 +32,7 @@ void	Contact::add(void) {
 	std::string	input;
 
 	std::cout << "Add new contact:" << std::endl;
-	this->set_id(Phonebook::get_count());
+	this->set_id(Phonebook::id);
 	this->set_firstname(this->fill_attribute("Firstname:"));
 	this->set_lastname(this->fill_attribute("Lastname:"));
 	this->set_nickname(this->fill_attribute("Nickname :"));

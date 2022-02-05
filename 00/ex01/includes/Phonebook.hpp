@@ -25,6 +25,7 @@ public:
 	static int	get_count(void);
 	void		search_contact(void) const;
 	void		print_contact(int id) const;
+	static int	id;
 private:
 	static int	_count;
 	Contact		_contacts[8];
