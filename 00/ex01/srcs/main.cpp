@@ -9,7 +9,7 @@ int	main(void)
 	while (cmd.compare("EXIT") != 0)
 	{
 		std::cout << "Enter a command (ADD, SEARCH, EXIT):" << std::endl;
-		std::cin >> cmd;
+		std::getline(std::cin, cmd);
 		if (cmd.compare("ADD") == 0)
 		{
 			Contact contact;

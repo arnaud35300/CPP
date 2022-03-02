@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 18:34:46 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/25 18:42:41 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/02 15:02:54 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	Phonebook::search_contact(void) const {
 	std::string	input;
 
 	std::cout << "Index:" << std::endl;
-	std::cin >> input;
+	std::getline(std::cin, input);
 	std::stringstream input_stream(input);
 	int id = 0;
 	input_stream >> id;

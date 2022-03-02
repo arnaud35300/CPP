@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/25 19:47:03 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/25 21:28:46 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/02 15:31:45 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ Account::Account(int initial_deposit) : _amount(initial_deposit), _nbDeposits(0)
 	Account::_nbAccounts++;
 	Account::_totalAmount += initial_deposit;
 
+	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "amount:" << this->_amount << ";";
 	std::cout << "created" << std::endl;
@@ -74,12 +75,21 @@ void	Account::makeDeposit(int deposit) {
 }
 
 bool	Account::makeWithdrawal(int withdrawals) {
+	Account::_displayTimestamp();
+	std::cout << "index:" << this->_accountIndex << ";";
+	std::cout << "p_amount:" << this->_amount << ";";
 	if (withdrawals > this->_amount)
+	{
+		std::cout << "withdrawal:refused" << std::endl;
 		return (false);
+	}
+	std::cout << "withdrawal:" << withdrawals << ";";
 	this->_amount -= withdrawals;
 	this->_nbWithdrawals++;
 	Account::_totalNbWithdrawals++;
 	Account::_totalAmount -= withdrawals;
+	std::cout << "amount:" << this->_amount << ";";
+	std::cout << "nb_withdrawals:" << this->_nbWithdrawals << std::endl;
 	return (true);
 }
 
@@ -88,6 +98,7 @@ int	Account::checkAmount(void) const {
 }
 
 void	Account::displayStatus(void) const {
+	Account::_displayTimestamp();
 	std::cout << "index:" << this->_accountIndex << ";";
 	std::cout << "amount:" << this->_amount << ";";
 	std::cout << "deposits:" << this->_nbDeposits << ";";

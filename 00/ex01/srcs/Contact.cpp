@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 20:20:32 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/25 17:42:13 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/02 15:01:56 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ std::string	Contact::fill_attribute(std::string name) {
 	std::string attribute;
 
 	std::cout << name << std::endl;
-	std::cin >> attribute;
+	std::getline(std::cin, attribute);
 	return (attribute);
 }
 
