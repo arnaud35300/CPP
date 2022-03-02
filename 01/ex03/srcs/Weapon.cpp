@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 16:29:19 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/26 16:55:56 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/02 17:47:44 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Weapon::~Weapon(void) {
 	return ;
 }
 
-std::string	Weapon::getType(void) const {
+std::string const &	Weapon::getType(void) const {
 	return (this->_type);
 }
 

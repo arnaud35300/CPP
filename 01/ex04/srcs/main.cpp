@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:29:45 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/26 18:32:13 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/02 18:10:56 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,12 @@ int	main(int ac, char **av)
 		std::cout << "Usage: ./prog filename s1 s2" << std::endl;
 		return (1);
 	}
-	
 	std::ifstream	ifs(av[1]);
-	
 	if (!ifs.is_open())
 	{
 		std::cout << "Bad file." << std::endl;
 		return (2);
 	}
-	
 	std::string	str(av[1]);
 	str.append(".replace");
 	std::ofstream	ofs(str.c_str());	
@@ -37,28 +34,25 @@ int	main(int ac, char **av)
 		ifs.close();
 		ofs.close();
 		return (3);
-	}
-	
-	std::string	content;
-
-	// fill file content to a std::string variable.
-	typedef std::istream_iterator<char> ch;
-	for (ch it(ifs); it != ch(); ++it) {
-		content.push_back(*it);
-	}
-
-	// erase and replace
-	for (size_t i = 0; i < content.size(); i++)
+	}	
+	std::string line;
+	while (std::getline(ifs, line))
 	{
-		if (content.compare(i, strlen(av[2]), av[2]) == 0)
+		size_t i = 0;
+		while (i < line.size())
 		{
-			content.erase(i, strlen(av[2]));
-			content.insert(i, av[3]);
+			if (line.compare(i, strlen(av[2]), av[2]) == 0)
+			{
+				line.erase(i, strlen(av[2]));
+				line.insert(i, av[3]);
+				i += strlen(av[3]);
+			}
+			else
+				i++;
 		}
+		ofs << line << std::endl;
 	}
-	ofs << content << std::endl;
-	
 	ifs.close();
 	ofs.close();
-	return (0);
+	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 15:29:32 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/26 16:03:17 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/02 15:47:19 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(void)
 {
-	int	N = 5;
+	int	N = 50;
 	Zombie *zombie = zombieHorde(N, "Georges");
 
 	std::cout << "[Call] : announce()" << std::endl;
