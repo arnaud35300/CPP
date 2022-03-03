@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 11:40:31 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/05 17:19:44 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/03 17:26:02 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ int	main(void)
 
 		s.whoAmi();
 	}
-	std::cout << std::endl << std::endl << std::endl;
 	return (0);
 }

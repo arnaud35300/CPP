@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/05 15:24:58 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/05 17:31:34 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/03 17:28:15 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ DiamondTrap::DiamondTrap(std::string name)
 	this->_energy_points = ScavTrap::_scav_energy_points;
 	this->_attack_damage = FragTrap::_attack_damage;
 
-	std::cout << ScavTrap::_energy_points<< std::endl;
 	std::cout << "DiamondTrap default constructor called" << std::endl;
-
 	return ;
 }
 
