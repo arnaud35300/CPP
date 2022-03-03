@@ -6,11 +6,18 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:24:31 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/27 11:58:53 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/03 11:43:22 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
+
+double	ft_pow(double base, double exponent)
+{
+	if (exponent < 1)
+		return (1);
+	return (base * ft_pow(base, --exponent));
+}
 
 int	main(void)
 {

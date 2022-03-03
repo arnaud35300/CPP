@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:25:17 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/27 11:35:06 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/03 09:05:43 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
 
 private:
 	int	_value;
-	static int	_bytes;
+	static const int	_bytes;
 
 };
 

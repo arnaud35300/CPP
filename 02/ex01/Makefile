@@ -6,7 +6,7 @@
 #    By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/01/24 17:25:51 by arguilla          #+#    #+#              #
-#    Updated: 2022/01/27 10:40:16 by arguilla         ###   ########.fr        #
+#    Updated: 2022/03/03 11:43:53 by arguilla         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ _YELLOW	=	\e[33m
 
 # [ COMPILATION VARIABLES ] #
 
-CC		=	clang++
+CC		=	c++
 CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 # [ DIRECTORIES ] #

@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:25:17 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/27 12:01:40 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/03 11:37:05 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	Fixed::setRawBits(int const raw)
 
 float	Fixed::toFloat(void) const
 {
-	return ((float)this->_value / (pow(2, Fixed::_bytes)));
+	return ((float)this->_value / (ft_pow(2, Fixed::_bytes)));
 }
 
 int		Fixed::toInt(void) const

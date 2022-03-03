@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 09:25:17 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/27 11:38:39 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/03 09:06:04 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,4 @@ void	Fixed::setRawBits(int const raw)
 	this->_value = raw;
 	return ;
 }
-int	Fixed::_bytes = 8;
+int	const Fixed::_bytes = 8;
