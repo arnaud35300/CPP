@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:26:52 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/01 15:19:54 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/05 12:28:33 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,46 +85,18 @@ int	Form::getGradeToExecute(void) const
 
 void	Form::beSigned(Bureaucrat const & b)
 {
-	try
-	{
-		if (b.getGrade() > this->getGradeToSign())
-			throw Form::GradeTooLowException();
-		else
-			this->_is_signed = true;
-	}
-	catch(Form::GradeTooLowException & e)
-	{
-		std::cout << e.signGradeTooLow() << std::endl;
-		this->_is_signed = false;
-	}
+	if (b.getGrade() > this->getGradeToSign())
+		throw Form::GradeTooLowException();
+	this->_is_signed = true;
 }
 
 bool	Form::manageException(Form const	& f)
 {
-	try
-	{
-		if (f.getGradeToExecute() > 150 || f.getGradeToSign() > 150)
-			throw Form::GradeTooLowException();
-		else if (f.getGradeToExecute() < 1 || f.getGradeToSign() < 1)
-			throw Form::GradeTooHighException();
-		return (true);
-	}
-	catch (Form::GradeTooLowException & e)
-	{
-		if (f.getGradeToExecute() > 150)
-			std::cout << e.executeGradeTooLow() << std::endl;
-		if (f.getGradeToSign() > 150)
-			std::cout << e.signGradeTooLow() << std::endl;
-		return (false);
-	}
-	catch (Form::GradeTooHighException & e)
-	{
-		if (f.getGradeToExecute() < 1)
-			std::cout << e.executeGradeTooHigh() << std::endl;
-		if (f.getGradeToSign() < 1)
-			std::cout << e.signGradeTooHigh() << std::endl;
-		return (false);
-	}
+	if (f.getGradeToExecute() > 150 || f.getGradeToSign() > 150)
+		throw Form::GradeTooLowException();
+	else if (f.getGradeToExecute() < 1 || f.getGradeToSign() < 1)
+		throw Form::GradeTooHighException();
+	return (true);
 }
 
 void	Form::CheckExecuteRequirements(Bureaucrat const & executor) const

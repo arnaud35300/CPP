@@ -6,57 +6,57 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 11:40:31 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/01 12:07:49 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/05 12:57:35 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
-int	main(void)
+int main(void)
 {
-	ShrubberyCreationForm	s_form("tree");
-	RobotomyRequestForm		r_form("robot");
-	PresidentialPardonForm	p_form("presidential");
-	Bureaucrat				bureaucrat("Steve", 1);
+	int exit_code = 0;
 
-	std::cout
-		<< s_form
-		<< r_form
-		<< p_form
-		<< std::endl << "Bureaucrat :" << std::endl
-		<< bureaucrat
-	;
+	try
+	{
+		Bureaucrat b("Steve", 100);
+		PresidentialPardonForm form("tree");
 
-	bureaucrat.executeForm(s_form);
-	s_form.beSigned(bureaucrat);
-	bureaucrat.signForm(s_form);
-	bureaucrat.executeForm(s_form);
+		std::cout << b << std::endl;
+		std::cout << form << std::endl;
 
-	bureaucrat.executeForm(p_form);
-	r_form.beSigned(bureaucrat);
-	bureaucrat.signForm(r_form);
-	bureaucrat.executeForm(r_form);
-	bureaucrat.executeForm(r_form);
-	bureaucrat.executeForm(r_form);
-	bureaucrat.executeForm(r_form);
-	bureaucrat.executeForm(r_form);
-	bureaucrat.executeForm(r_form);
-	bureaucrat.executeForm(r_form);
-	bureaucrat.executeForm(r_form);
-	bureaucrat.executeForm(r_form);
-
-	bureaucrat.executeForm(p_form);
-	p_form.beSigned(bureaucrat);
-	bureaucrat.signForm(p_form);
-	bureaucrat.executeForm(p_form);
-
-	std::cout
-		<< s_form
-		<< r_form
-		<< p_form
-		<< std::endl << "Bureaucrat :" << std::endl
-		<< bureaucrat
-	;
-
-	return (0);
+		form.beSigned(b);
+		b.signForm(form);
+		b.executeForm(form);
+	}
+	catch (const Bureaucrat::GradeTooHighException &e)
+	{
+		std::cerr << e.what() << '\n';
+		return (++exit_code);
+	}
+	catch (const Bureaucrat::GradeTooLowException &e)
+	{
+		std::cerr << e.what() << '\n';
+		return (++exit_code);
+	}
+	catch (const Form::GradeTooLowException &e)
+	{
+		std::cerr << e.what() << std::endl;
+		return (++exit_code);
+	}
+	catch (const Form::GradeTooHighException &e)
+	{
+		std::cerr << e.what() << std::endl;
+		return (++exit_code);
+	}
+	catch(const Form::ExecutionRequirementsException & e)
+	{
+		std::cerr << e.what() << '\n';
+		return (++exit_code);
+	}
+	catch (const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+		return (++exit_code);
+	}
+	return (exit_code);
 }

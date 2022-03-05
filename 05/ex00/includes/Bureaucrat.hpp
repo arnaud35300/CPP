@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 11:03:37 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/01 12:03:55 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/05 12:17:59 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ public:
 		public:
 			virtual const char *	what(void) const throw()
 			{
-				return ("Grade too law.");
+				return ("Grade too low.");
 			}
 	};
 protected:

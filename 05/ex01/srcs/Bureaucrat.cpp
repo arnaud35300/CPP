@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 11:03:37 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/01 12:06:14 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/05 12:07:53 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,7 @@ Bureaucrat::Bureaucrat(void) : _name("Jean"), _grade(1)
 
 Bureaucrat::Bureaucrat(std::string const & name, int grade) : _name(name), _grade(grade)
 {
-	try
-	{
-		this->checkGrade(grade);
-	}
-	catch (Bureaucrat::GradeTooHighException & e)
-	{
-		std::cout << e.what() << std::endl;
-		this->_grade = 150;
-	}
-	catch (Bureaucrat::GradeTooLowException & e)
-	{
-		std::cout << e.what() << std::endl;
-		this->_grade = 1;
-	}
+	this->checkGrade(grade);
 	return ;
 }
 
@@ -55,39 +42,13 @@ Bureaucrat &	Bureaucrat::operator=(Bureaucrat const & rhs)
 
 void	Bureaucrat::increaseGrade(void)
 {
-	try
-	{
-		this->checkGrade(--this->_grade);
-	}
-	catch (Bureaucrat::GradeTooHighException & e)
-	{
-		std::cout << e.what() << std::endl;
-		this->_grade = 1;
-	}
-	catch (Bureaucrat::GradeTooLowException & e)
-	{
-		std::cout << e.what() << std::endl;
-		this->_grade = 150;
-	}
+	this->checkGrade(--this->_grade);
 	return ;
 }
 
 void	Bureaucrat::decreaseGrade(void)
 {
-	try
-	{
-		this->checkGrade(++this->_grade);
-	}
-	catch (Bureaucrat::GradeTooHighException & e)
-	{
-		std::cout << e.what() << std::endl;
-		this->_grade = 1;
-	}
-	catch (Bureaucrat::GradeTooLowException & e)
-	{
-		std::cout << e.what() << std::endl;
-		this->_grade = 150;
-	}
+	this->checkGrade(++this->_grade);
 	return ;
 }
 
@@ -121,4 +82,6 @@ void	Bureaucrat::signForm(Form const & form)
 {
 	if (form.getIsSigned())
 		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	else
+		std::cout << this->_name << " couldn't sign " << form.getName() << "because the Bureaucrat does not have the rights." << std::endl;
 }

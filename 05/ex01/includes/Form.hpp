@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/01 14:26:52 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/01 15:18:58 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/05 12:17:52 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,25 @@ public:
 			{
 				return ("grade to execute is too high");
 			}
+			virtual const char *	what(void) const throw()
+			{
+				return ("grade is too high");
+			}
 	};
 	class	GradeTooLowException :	public std::exception
 	{
 		public :
 			virtual const char *	signGradeTooLow(void) const throw()
 			{
-				return ("grade to sign is too law");
+				return ("grade to sign is too low");
 			}
 			virtual const char *	executeGradeTooLow(void) const throw()
 			{
-				return ("grade to execute is too law");
+				return ("grade to execute is too low");
+			}
+			virtual const char *	what(void) const throw()
+			{
+				return ("grade is too low");
 			}
 	};
 

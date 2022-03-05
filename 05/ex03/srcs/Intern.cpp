@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 12:01:59 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/03 12:27:44 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/05 13:28:35 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ Form *	Intern::makeForm(std::string name, std::string target)
 	if (result)
 		std::cout << "Intern create " << name << std::endl;
 	else
-		std::cout << "Invalid form name" << std::endl;
-
+		throw Intern::NoMatchFormException();
 	return (result);
 }
