@@ -6,16 +6,14 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 11:40:31 by arguilla          #+#    #+#             */
-/*   Updated: 2022/01/30 22:22:46 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/04 16:26:51 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
 int	main(void)
-{
-	// Animal animal; // can't be instatiable because this is abstract class.
-
+{	
 	Cat	one;
 	one.getBrain()->ideas[0] = "BONJOUR";
 	Cat	two = one;
