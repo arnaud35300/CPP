@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 11:40:31 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/03 18:20:11 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/06 17:31:08 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,23 @@ void	identify(Base & p)
 Base *	generate(void)
 {
 	int min = 0, max = 2;
-	int randNum = rand()%(max-min + 1) + min;
+	int randNum = min + (rand() % static_cast<int>(max - min + 1));
 
 	if (randNum == 0)
+	{
+		std::cout << "Instance of A" << std::endl;
 		return (new A);
+	}
 	else if (randNum == 1)
+	{
+		std::cout << "Instance of B" << std::endl;
 		return (new B);
+	}
 	else
+	{
+		std::cout << "Instance of C" << std::endl;
 		return (new C);
+	}
 }
 int	main(void)
 {
@@ -65,6 +74,7 @@ int	main(void)
 	Base *two;
 	Base *three;
 
+	srand(time(0));
 	one = generate();
 	two = generate();
 	three = generate();
