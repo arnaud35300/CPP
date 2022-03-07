@@ -28,7 +28,7 @@ int	main(void)
 		b[i] = "string " + ::toString(i);
 	try
 	{
-		std::cout << a[56] << std::endl;
+		std::cout << a[2]  << std::endl;
 	}
 	catch (std::out_of_range & e)
 	{
@@ -36,7 +36,8 @@ int	main(void)
 	}
 	try
 	{
-		std::cout << b[2] << std::endl;
+		for (int i = 0; i < 5; ++i)
+			std::cout << b[i] << std::endl;
 	}
 	catch (std::out_of_range & e)
 	{
