@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/04 16:05:46 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/05 09:45:23 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:07:19 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,8 +108,6 @@ void	Span::addByIteratorRange(std::vector<unsigned int>::iterator it, std::vecto
 	available_space = this->_max - this->_store.size();
 	if (available_space < 1)
 		return ;
-	std::cout << range << std::endl;
-	std::cout << available_space << std::endl;
 	if (range > available_space)
 		ite = it + available_space;
 	this->_store.insert(this->_store.end(), it, ite);
