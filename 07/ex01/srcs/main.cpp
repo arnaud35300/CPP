@@ -6,25 +6,11 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 11:40:31 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/04 10:53:08 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/07 14:59:22 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
-
-template<typename T>
-void	iter(T * array, int length, void (*func)(const T &))
-{
-	for (int i = 0; i < length; ++i)
-		func(array[i]);
-	return ;
-}
-
-template<typename T>
-void	print_current(T & item)
-{
-	std::cout << "item : " << item << std::endl;
-}
 
 int	main(void)
 {

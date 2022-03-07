@@ -6,18 +6,10 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 11:40:31 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/07 11:55:36 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/07 15:00:17 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "main.hpp"
-
-template<typename T>
-std::string	toString(T const & value)
-{
-	std::ostringstream	oss;
-	oss << value;
-	return (oss.str());
-}
 
 int	main(void)
 {

@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.hpp                                           :+:      :+:    :+:   */
+/*   swap.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/27 11:40:55 by arguilla          #+#    #+#             */
-/*   Updated: 2022/03/07 14:58:04 by arguilla         ###   ########.fr       */
+/*   Created: 2022/03/07 14:57:17 by arguilla          #+#    #+#             */
+/*   Updated: 2022/03/07 14:57:28 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_HPP
-# define MAIN_HPP
-
-# include <iostream>
-# include <string>
-# include "max.hpp"
-# include "min.hpp"
-# include "swap.hpp"
-
-#endif
+template<typename T>
+void	swap(T & a, T & b)
+{
+	T tmp = a;
+	a = b;
+	b = tmp;
+}

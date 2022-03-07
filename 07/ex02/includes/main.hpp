@@ -6,7 +6,7 @@
 /*   By: arguilla <arguilla@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 11:40:55 by arguilla          #+#    #+#             */
-/*   Updated: 2022/02/04 11:55:59 by arguilla         ###   ########.fr       */
+/*   Updated: 2022/03/07 15:00:37 by arguilla         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <string>
 # include <sstream>
 # include <stdexcept>
+# include "utils.hpp"
 # include "Array.hpp"
 
 #endif
